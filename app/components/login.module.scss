@@ -1,0 +1,136 @@
+@import "../styles/animation.scss";
+
+.mobile-area {
+    background-color: transparent;
+    border: none;
+    line-height: 28px;
+}
+
+
+.list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
+    border-bottom: var(--border-in-light);
+    padding: 10px 20px;
+    animation: slide-in ease 0.6s;
+}
+
+.list {
+    border: var(--border-in-light);
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 20px;
+    animation: slide-in ease 0.3s;
+}
+
+.settings {
+    padding: 20px;
+    overflow: auto;
+  }
+  
+  .settings-title {
+    font-size: 14px;
+    font-weight: bolder;
+  }
+  
+  
+  
+  .password-input-container {
+    max-width: 50%;
+    display: flex;
+    justify-content: flex-end;
+
+    
+    .password-input {
+      min-width: 80%;
+    }
+  }
+  
+
+.modal-container {
+    box-shadow: var(--card-shadow);
+    background-color: var(--white);
+    border-radius: 12px;
+    width: 50vw;
+    min-width: 400px;
+    max-width: 800px;
+    animation: fade-in ease 0.3s;
+    transform: translateY(-20vh);
+    --modal-padding: 20px;
+
+    .modal-header {
+        padding: var(--modal-padding);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: var(--border-in-light);
+
+        .modal-title {
+            font-weight: bolder;
+            font-size: 16px;
+        }
+    }
+
+    .modal-content {
+        max-height: 40vh;
+        padding: var(--modal-padding);
+        overflow: auto;
+    }
+
+    .modal-footer {
+        padding: var(--modal-padding);
+        display: flex;
+        justify-content: flex-end;
+
+        .modal-actions {
+            display: flex;
+            align-items: center;
+
+            .modal-action {
+                &:not(:last-child) {
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}
+
+.show {
+    opacity: 1;
+    transition: all ease 0.3s;
+    transform: translateY(-20vh);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    animation: fade-in ease 0.6s;
+    z-index: 99999;
+}
+
+.hide {
+    opacity: 0;
+    transition: all ease 0.3s;
+    transform: translateY(20px);
+}
+
+.input {
+    border: var(--border-in-light);
+    border-radius: 10px;
+    padding: 10px;
+    font-family: inherit;
+    background-color: var(--white);
+    color: var(--black);
+    resize: none;
+    min-width: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .modal-container {
+        width: 300px;
+
+        .modal-content {
+            max-height: 50vh;
+        }
+    }
+}

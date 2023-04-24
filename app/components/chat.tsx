@@ -52,6 +52,7 @@ import styles from "./home.module.scss";
 import chatStyle from "./chat.module.scss";
 
 import { Input, Modal, showModal } from "./ui-lib";
+import { showLoginModal } from "./login";
 
 const Markdown = dynamic(
   async () => memo((await import("./markdown")).Markdown),
@@ -83,41 +84,7 @@ export function Avatar(props: { role: Message["role"] }) {
 }
 
 function exportMessages(messages: Message[], topic: string) {
-  const mdText =
-    `# ${topic}\n\n` +
-    messages
-      .map((m) => {
-        return m.role === "user"
-          ? `## ${Locale.Export.MessageFromYou}:\n${m.content}`
-          : `## ${Locale.Export.MessageFromChatGPT}:\n${m.content.trim()}`;
-      })
-      .join("\n\n");
-  const filename = `${topic}.md`;
-
-  showModal({
-    title: Locale.Export.Title,
-    children: (
-      <div className="markdown-body">
-        <pre className={styles["export-content"]}>{mdText}</pre>
-      </div>
-    ),
-    actions: [
-      <IconButton
-        key="copy"
-        icon={<CopyIcon />}
-        bordered
-        text={Locale.Export.Copy}
-        onClick={() => copyToClipboard(mdText)}
-      />,
-      <IconButton
-        key="download"
-        icon={<DownloadIcon />}
-        bordered
-        text={Locale.Export.Download}
-        onClick={() => downloadAs(mdText, filename)}
-      />,
-    ],
-  });
+    showLoginModal();
 }
 
 function PromptToast(props: {
