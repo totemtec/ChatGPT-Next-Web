@@ -28,32 +28,46 @@
 .settings {
     padding: 20px;
     overflow: auto;
-  }
-  
-  .settings-title {
+}
+
+.settings-title {
     font-size: 14px;
     font-weight: bolder;
-  }
-  
-  
-  
-  .password-input-container {
-    max-width: 50%;
-    display: flex;
-    justify-content: flex-end;
+}
 
-    
+
+
+.password-input-container {
+    width: 150px;
+    display: flex;
+    justify-content: left;
+
     .password-input {
-      min-width: 80%;
+        min-width: 100%;
+        text-align: left;
     }
-  }
-  
+}
+
+.verify-code-input {
+    width: 100px;
+    display: flex;
+    justify-content: left;
+
+    .verify-code-input {
+        min-width: 100%;
+        text-align: left;
+    }
+}
+
+.field-label {
+    width: 100px;
+}
 
 .modal-container {
     box-shadow: var(--card-shadow);
     background-color: var(--white);
     border-radius: 12px;
-    width: 50vw;
+    width: 400px;
     min-width: 400px;
     max-width: 800px;
     animation: fade-in ease 0.3s;
@@ -82,18 +96,7 @@
     .modal-footer {
         padding: var(--modal-padding);
         display: flex;
-        justify-content: flex-end;
-
-        .modal-actions {
-            display: flex;
-            align-items: center;
-
-            .modal-action {
-                &:not(:last-child) {
-                    margin-right: 20px;
-                }
-            }
-        }
+        justify-content: center;
     }
 }
 
@@ -124,6 +127,69 @@
     resize: none;
     min-width: 50px;
 }
+
+.icon-button {
+    background-color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    user-select: none;
+    outline: none;
+    border: none;
+    color: var(--black);
+
+    &[disabled] {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}
+
+.shadow {
+    box-shadow: var(--card-shadow);
+}
+
+.border {
+    border: var(--border-in-light);
+}
+
+.icon-button:hover {
+    border-color: var(--primary);
+}
+
+.icon-button-icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .icon-button {
+        padding: 16px;
+    }
+}
+
+.icon-button-text {
+    margin-left: 5px;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.chat-input-send {
+    background-color: var(--primary);
+    color: white;
+    width: 180px;
+}
+
 
 @media only screen and (max-width: 600px) {
     .modal-container {

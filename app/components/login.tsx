@@ -7,7 +7,8 @@ import {
     useTokenStore,
 } from "../store";
 import { createRoot } from "react-dom/client";
-
+import { IconButton } from "./button";
+import SendWhiteIcon from "../icons/send-white.svg";
 
 
 
@@ -27,31 +28,35 @@ export function Modal(props: ModalProps) {
 
             <div className={styles["modal-content"]}>
                 <div className={styles["list-item"]}>
-                    <button className={styles["mobile-area"]}>
-                        中国 +86
-                    </button>
+                    <div className={styles["field-label"]}>
+                        手机号码
+                    </div>
+                
                     <div className={styles["password-input-container"]}>
                         <input type="text" className={styles["password-input"]} />
                     </div>
+
+                    <div style={ {width: '80px' }}></div>
                 </div>
                 <div className={styles["list-item"]}>
-                    <div className={styles["password-input-container"]}>
-                        <input type="text" className={styles["password-input"]} />
+                    <div className={styles["field-label"]}>
+                        验证码
                     </div>
-                    <button className={styles["mobile-area"]}>
-                        发送验证码
-                    </button>
+                
+                    <div className={styles["verify-code-input-container"]}>
+                        <input type="text" className={styles[".verify-code-input"]} />
+                    </div>
 
+                    <div style={ {width: '80px' }}>发送验证码</div>
                 </div>
             </div>
 
             <div className={styles["modal-footer"]}>
-                <div className={styles["modal-actions"]}>
-
-                    <div className={styles["modal-action"]}>
-                        登录
-                    </div>
-                </div>
+            <IconButton
+            icon={<SendWhiteIcon />}
+            text="登录"
+            className={styles["chat-input-send"]}
+            noDark />
             </div>
         </div>
     );
